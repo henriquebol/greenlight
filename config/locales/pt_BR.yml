@@ -473,9 +473,9 @@ pt_BR:
     search: Pesquisar
   signup:
     password_confirm: Confirmação de senha
-    subtitle: Criar uma conta
-    title: Criar uma conta
-    with: "Criar uma conta com %{provider}"
+    subtitle: Cadastrar
+    title: Cadastrar
+    with: "Cadastrar com %{provider}"
   terms:
     accept: "Aceito os %{href}"
     accept_existing: Aceito os termos e condições
