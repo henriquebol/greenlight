@@ -170,3 +170,10 @@
 .sign-in-button {
   height: fit-content;
 }
+
+.table-responsive tbody td:first-child > *:first-child {
+  max-height: 3em;
+  overflow: hidden;
+  max-width: 200px;
+  display: flex;
+}

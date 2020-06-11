@@ -126,7 +126,7 @@ module Greenlight
     config.maintenance_mode = ENV["MAINTENANCE_MODE"] == "true"
 
     config.report_issue_url = ENV["REPORT_ISSUE_URL"]
-    config.help_url = ENV["HELP_URL"].presence || "https://bbb.virtual.ufc.br/b/pau-waw-gh2"
+    config.help_url = ENV["HELP_URL"].nil? ? "https://bbb.virtual.ufc.br/b/pau-waw-gh2" : ENV["HELP_URL"]
 
     # DEFAULTS
 
