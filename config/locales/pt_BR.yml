@@ -293,7 +293,8 @@ pt_BR:
     search:
       start: Iniciar pesquisa...
   landing:
-    about: "Webconferências do Instituto UFC Virtual. Você pode criar suas salas para realizar sessões de video-conferências, ou entrar em salas de outras pessoas utilizando um link curto."    welcome: Bem-vindo ao BigBlueButton.
+    about: "Webconferências do Instituto UFC Virtual. Você pode criar suas salas para realizar sessões de video-conferências, ou entrar em salas de outras pessoas utilizando um link curto."
+    welcome: Bem-vindo.
     video: Assista ao nosso tutorial sobre como utilizar o Greenlight
     upgrade: Mostre-me como atualizar para o 2.0!
     version: "Lançamos uma nova versão do Greenlight, entretanto sua base de dados é incompatível."
