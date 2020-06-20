@@ -469,6 +469,7 @@ pt_BR:
       presentation: Apresentação
       statistics: Estatísticas
       video: Vídeo
+    download: Download
   registration:
     approval:
       fail: "Sua conta ainda não foi aprovada. Se vários dias se passaram desde que você se cadastrou, por favor, contate o seu administrador."

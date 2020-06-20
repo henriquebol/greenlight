@@ -17,8 +17,8 @@
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>
 
 class RecordingsController < ApplicationController
-  before_action :find_room
-  before_action :verify_room_ownership
+  before_action :find_room, except: [:player]
+  before_action :verify_room_ownership, except: [:player]
 
   META_LISTED = "gl-listed"
 
@@ -47,6 +47,12 @@ class RecordingsController < ApplicationController
 
     # Redirects to the page that made the initial request
     redirect_back fallback_location: root_path
+  end
+
+  # POST /recordings/player/:URL
+  def player
+    @url = params[:url]
+    @email = current_user.email
   end
 
   private

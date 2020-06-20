@@ -469,6 +469,7 @@ en:
       presentation: Presentation
       statistics: Statistics
       video: Video
+    download: Download
   registration:
     approval:
       fail: Your account has not been approved yet. If multiples days have passed since you signed up, please contact your administrator.

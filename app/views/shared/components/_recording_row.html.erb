@@ -65,7 +65,14 @@
   <td>
     <% sorted_formats = recording[:playbacks].sort_by! { |p| p[:type] } %>
     <% sorted_formats.each do |p| %>
-      <%= link_to t("recording.format.#{p[:type]}"), p[:url], class: "btn btn-sm btn-primary", target: "_blank" %>
+      <%# <%= link_to t("recording.format.#{p[:type]}"), p[:url], class: "btn btn-sm btn-primary", target: "_blank" %> 
+      <%= button_to t("recording.format.#{p[:type]}"), player_recording_path,
+        class: "btn btn-sm btn-primary",
+        id: 'player-button-modal',
+        params: {
+          url: p[:url]
+          }
+      %>
     <% end %>
   </td>
   <td class="text-center">
