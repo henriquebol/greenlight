@@ -52,6 +52,7 @@ class AdminsController < ApplicationController
 
   # GET /admins/server_recordings
   def server_recordings
+    @permit_download = true
     server_rooms = rooms_list_for_recordings
 
     @search, @order_column, @order_direction, recs =
