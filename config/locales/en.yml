@@ -150,6 +150,8 @@ en:
         info: Allows any user to start the meeting at any time. By default, only the room owner can start the meeting.
       all_moderator:
         info: Gives all users moderator privileges in BigBlueButton when they join the meeting.
+      download:
+        info: Allow Download.
       options:
         disabled: Disabled
         enabled: Always Enabled
@@ -406,6 +408,7 @@ en:
       mute: Mute users when they join
       require_approval: Require moderator approval before joining
       start: Allow any user to start this meeting
+      download: Allow Download
       footer_text: Adjustment to your room can be done at anytime.
     rename_room:
       name_placeholder: Enter a new room name...
@@ -453,6 +456,7 @@ en:
     no_user_recordings: You currently have no recordings.
     no_matched_recordings: No %{inject} recordings match your search.
     recorded_on: Recorded on %{date}
+    download: Download
     table:
       name: Name
       thumbnails: Thumbnails

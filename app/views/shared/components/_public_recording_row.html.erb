@@ -67,4 +67,24 @@
       %>
     <% end %>
   </td>
+  <% if @permit_download %>
+    <td class="text-center">
+      <div class="item-action dropdown">
+        <a href="javascript:void(0)" data-toggle="dropdown" class="icon">
+          <i class="fas fa-ellipsis-v px-4"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <% recording_links = "" %>
+          <% p = recording[:playbacks].each do |p| recording_links.concat(p[:url] + "\n\n") if p.key?(:length) end %>
+          <% if p %>
+            <%= link_to ('<i class="dropdown-icon fa fa-download"></i>'+t("recording.download")).html_safe,
+              download_recording_path(:url => recording_links),
+              class: "dropdown-item download-link",
+              method: :post
+            %>
+          <% end %>
+  <% end %>
+      </div>
+    </div>
+  </td>
 </tr>

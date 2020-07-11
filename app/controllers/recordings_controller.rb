@@ -17,8 +17,10 @@
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>
 
 class RecordingsController < ApplicationController
-  before_action :find_room, except: [:player]
-  before_action :verify_room_ownership, except: [:player]
+  include Joiner
+
+  before_action :find_room, except: [:player, :download]
+  before_action :verify_room_ownership, except: [:player, :download]
 
   META_LISTED = "gl-listed"
 
@@ -52,7 +54,42 @@ class RecordingsController < ApplicationController
   # POST /recordings/player/:URL
   def player
     @url = params[:url]
-    @email = current_user.email
+  end
+
+  # POST /recordings/download/:URL
+  def download
+    require 'rest-client'
+    require 'json'
+    require 'uri'
+
+    address = ENV["URL_DOWNLOADER"]
+    email = current_user ? current_user.email : 'guest@example.com'
+    url = URI.extract(params[:url])[0]
+
+    begin
+      resp = RestClient.get "#{address}email=#{email}&url=#{url}"
+
+      msg = JSON.parse(resp.body)["msg"]
+      meetingID = msg.split("download/")[1]
+
+      if (msg.slice(URI::regexp(%w(http https))) == msg)
+        path = ENV['PATH_FILES'] + meetingID
+        send_file( path,
+        :disposition => 'attachment',
+        :type => 'video/mp4',
+        :x_sendfile => true )
+      else
+        respond_to do |format|
+          format.html { redirect_to request.referer , flash: { success: msg } }
+        end
+      end
+
+    rescue => ex
+      respond_to do |format|
+        format.html { redirect_to request.referer , flash: { success: "Servidor indisponível no momento. Por favor, tente novamente mais tarde." } }
+      end
+    end
+
   end
 
   private

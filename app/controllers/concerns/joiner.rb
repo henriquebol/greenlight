@@ -57,6 +57,7 @@ module Joiner
 
       opts[:require_moderator_approval] = room_setting_with_config("requireModeratorApproval")
       opts[:mute_on_start] = room_setting_with_config("muteOnStart")
+      opts[:download] = room_setting_with_config("download")
 
       if current_user
         redirect_to join_path(@room, current_user.name, opts, current_user.uid)
@@ -105,6 +106,8 @@ module Joiner
       "Room Configuration All Join Moderator"
     when "anyoneCanStart"
       "Room Configuration Allow Any Start"
+    when "download"
+      "Room Configuration Download"
     end
 
     case @settings.get_value(config)

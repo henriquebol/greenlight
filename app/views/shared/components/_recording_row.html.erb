@@ -86,6 +86,14 @@
         <% if p %>
           <a class="dropdown-item email-link" data-pres-link="<%= recording_links %>"><i class="dropdown-icon far fa-envelope"></i> <%= t("recording.email") %></a>
           <div class="dropdown-divider"></div>
+          <% if @permit_download %>
+            <%= link_to ('<i class="dropdown-icon fa fa-download"></i>'+t("recording.download")).html_safe,
+              download_recording_path(:url => recording_links),
+              class: "dropdown-item download-link",
+              method: :post
+            %>
+            <div class="dropdown-divider"></div>
+          <% end %>
         <% end %>
         <%= button_to delete_recording_path(meetingID: recording[:meetingID], record_id: recording[:recordID]), method: :delete, class: "dropdown-item", "data-disable": "" do %>
           <i class="dropdown-icon far fa-trash-alt"></i> <%= t("delete") %>

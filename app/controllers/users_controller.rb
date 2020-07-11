@@ -179,6 +179,7 @@ class UsersController < ApplicationController
   # GET /u/:user_uid/recordings
   def recordings
     if current_user && current_user.uid == params[:user_uid]
+      @permit_download = true
       @search, @order_column, @order_direction, recs =
         all_recordings(current_user.rooms.pluck(:bbb_id), params.permit(:search, :column, :direction), true)
       @pagy, @recordings = pagy_array(recs)

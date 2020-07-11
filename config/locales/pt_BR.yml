@@ -150,6 +150,8 @@ pt_BR:
         info: "Permite que qualquer usuário inicie a reunião a qualquer momento. Por padrão, apenas o proprietário da sala pode iniciar a reunião."
       all_moderator:
         info: Concede a todos os usuários privilégios de moderador quando ingressam na reunião.
+      download:
+        info: Permitir o Download das gravações por todos que tem acesso ao playback.
       options:
         disabled: Desabilitado
         enabled: Sempre ativado
@@ -406,6 +408,7 @@ pt_BR:
       mute: Usuários entram em mudo
       require_approval: Solicitar aprovação do moderador antes de entrar na sala
       start: Permitir que qualquer usuário inicie esta sala
+      download: Permitir o download (Não é possível alterar após o início)
       footer_text: Você pode editar as configurações da sala a qualquer momento.
     rename_room:
       name_placeholder: Digite o novo nome da sala...
@@ -453,6 +456,7 @@ pt_BR:
     no_user_recordings: Você não possui gravações.
     no_matched_recordings: "Nenhuma gravação corresponde à sua busca %{inject}."
     recorded_on: "Gravado em %{date}"
+    download: Download (mp4)
     table:
       name: Nome
       thumbnails: Miniaturas

@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   # Player iframe
   post '/player', to: 'recordings#player', as: 'player_recording'
 
+  # Download
+  post '/download', to: 'recordings#download', as: 'download_recording'
+
   # Error routes.
   match '/401', to: 'errors#unauthorized', via: :all, as: :unauthorized
   match '/404', to: 'errors#not_found', via: :all, as: :not_found
