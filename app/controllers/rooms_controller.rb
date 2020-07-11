@@ -72,7 +72,7 @@ class RoomsController < ApplicationController
     @permit_download = false
     @is_owned = @room.owned_by?(current_user)
 
-    if (@is_owned || @download)
+    if (@is_owned || @download || current_user&.has_role?(:super_admin))
       @permit_download = true
     end
 
